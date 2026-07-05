@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MyHospitalApp/MyHospitalApp.csproj" />
+  <Project Path="NorthWindApp/NorthWindApp.csproj" />
+  <Project Path="NorthWindConsolApp/NorthWindConsolApp.csproj" Id="e12a2a3e-4b23-4d8b-809a-df15d9e0fcc6" />
+</Solution>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="NorthWindConsole/NorthWindConsole.csproj" />
+  <Project Path="NorthWindDapperTrail/NorthWindDapperTrail.csproj" />
+  <Project Path="SchoolConsole/SchoolConsole.csproj" />
+</Solution>
