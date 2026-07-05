@@ -1,0 +1,37 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Talabat.Core.Entities;
+using Talabat.Core.Specifications;
+
+namespace Talabat.Repository
+{
+    public static class SpecificationsEvaluator<TEntity> where TEntity : BaseEntity
+    {
+        public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery , ISpecifications<TEntity> spec)
+        {
+            var query = inputQuery;        
+
+            if(spec.Criteria != null)
+                query = query.Where(spec.Criteria);
+
+            // Now add the ordering after the criteria (after Where)
+            if(spec.OrderBy != null)
+                query = query.OrderBy(spec.OrderBy);
+            else if(spec.OrderByDesc != null)
+                query = query.OrderByDescending(spec.OrderByDesc);
+
+            if (spec.IsPaginationEnabled)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
+
+            query = spec.Includes.Aggregate(query, (currentExpression, includeExpression) => currentExpression.Include(includeExpression));
+
+            return query;
+        }
+    }
+}
