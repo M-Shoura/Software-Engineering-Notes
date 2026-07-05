@@ -1,0 +1,18 @@
+﻿@model CreateEmployeeDTO
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<partial name="Partials/CreateEditEmployeePartial" />
+
+
+@section ClientSideValidation {
+    @*
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    *@
+    
+    @*Using the partial view : *@
+    <partial name="_ValidationScriptsPartial" />
+}

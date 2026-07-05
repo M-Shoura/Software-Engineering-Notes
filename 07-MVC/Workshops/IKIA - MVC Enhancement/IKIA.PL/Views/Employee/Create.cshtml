@@ -1,0 +1,26 @@
+﻿
+@model CreateEmployeeDTO
+
+
+@{
+    ViewData["Title"] = "Create";
+    // var departmentsVar = new SelectList(ViewData["Departments"] as IEnumerable<DepartmentToReturnDTO>, nameof(DepartmentToReturnDTO.Id), nameof(DepartmentToReturnDTO.Name));
+
+    // we will use injection in department service instead of injection in the controller ...
+   
+
+}
+
+<partial name="Partials/CreateEditEmployeePartial" />
+
+
+
+@section ClientSideValidation {
+    @*
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    *@
+    
+    @*Using the partial view : *@
+    <partial name="_ValidationScriptsPartial" />
+}
