@@ -1,0 +1,52 @@
+﻿@model Car
+
+<h1>Update Car</h1>
+
+@* <form method="post" action="/car/UpdateCar">
+    <input type="hidden" id="numId" class="container-fluid" value="@Model.Num" name="Id" />
+    <div style="width:200px">
+        <label for="ManfactureId">Manfacture</label>
+        <input type="text" id="ManfactureId" class="container-fluid" value="@Model.Manfacture" name="Manfacture" />
+    </div>
+    <div style="width:200px">
+        <label for="ModelId">Model</label>
+        <input type="text" id="ModelId" class="container-fluid" value="@Model.Model" name="Model" />
+    </div>
+    <div style="width:200px">
+        <label for="ColorId">Color</label>
+        <input type="text" id="ColorId" class="container-fluid" value="@Model.Color" name="Color" />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" value="Save" />
+        <a href="/Car/GetAllCars" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+
+<br />
+<br />
+<br />
+<br /> *@
+
+@using (Html.BeginForm("UpdateCar", "car", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.Num)
+
+    @Html.DisplayNameFor(x=>x.Manfacture) <br />
+    @Html.EditorFor(x=>x.Manfacture)
+
+    <br />
+    
+    @Html.DisplayNameFor(x => x.Model) <br />
+    @Html.EditorFor(x => x.Model)
+    
+    <br />
+
+    @Html.DisplayNameFor(x => x.Color) <br />
+    @Html.EditorFor(x => x.Color)
+    
+    <br />
+    <br />
+    
+    <input type="submit" class="btn btn-primary" value="Save" />
+    @Html.ActionLink("Cancel", "GetAllCars", "car", null, new { @class = "btn btn-danger" })
+}

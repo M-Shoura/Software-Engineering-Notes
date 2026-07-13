@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a href="/Home/Calculate/?x=4&y=9" class="btn btn-primary"> Calc_Plain_HTML_Link</a>
+@Html.ActionLink("Calc_Plain_HTML_Helper", "Calculate" , "Home", new {x=4, y=9}, new {@class="btn btn-primary"})
+<a asp-controller="Home" asp-action="Calculate" asp-route-x="4" asp-route-y="9" class="btn btn-primary">Calc_Plain_Tag_Helper</a>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

@@ -1,0 +1,54 @@
+﻿
+<h1>Create New Car</h1>
+
+@* 
+<form method="post" action="/car/CreateNewCar">
+    <div style="width:200px">
+        <label for="numId">Num</label>
+        <input type="text" id="numId" class="container-fluid" name="Id" />
+    </div>
+    <div style="width:200px">
+        <label for="ManfactureId">Manfacture</label>
+        <input type="text" id="ManfactureId" class="container-fluid" name="Manfacture" />
+    </div>
+    <div style="width:200px">
+        <label for="ModelId">Model</label>
+        <input type="text" id="ModelId" class="container-fluid" name="Model" />
+    </div>
+    <div style="width:200px">
+        <label for="ColorId">Color</label>
+        <input type="text" id="ColorId" class="container-fluid" name="Color" />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" value="Create" />
+        <a href="/Car/GetAllCars" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+ *@
+
+@using (Html.BeginForm("CreateNewCar", "car", FormMethod.Post))
+{
+    @Html.DisplayName("Num") <br />
+    @Html.TextBox("Id", null, new { @class = "container-fluid; width:200px", placeholder = "Enter Num" })
+   
+    <br />
+
+    @Html.DisplayName("Manfacture") <br />
+    @Html.TextBox("Manfacture", null, new { @class = "container-fluid; width:200px", placeholder = "Enter Manfacture" })
+   
+    <br />
+
+    @Html.DisplayName("Model")  <br />
+    @Html.TextBox("Model", null, new { @class = "container-fluid; width:200px", placeholder = "Enter Model" })
+    
+    <br />
+   
+    @Html.DisplayName("Color")  <br />
+    @Html.TextBox("Color", null, new { @class = "container-fluid; width:200px", placeholder = "Enter Color" })
+   
+    <br />
+    <br />
+
+    <input type="submit" class="btn btn-primary" value="Create" />
+    @Html.ActionLink("Cancel", "GetAllCars", "car", null, new { @class = "btn btn-danger" })
+}

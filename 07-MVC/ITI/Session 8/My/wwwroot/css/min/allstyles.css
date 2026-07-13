@@ -1,0 +1,8 @@
+body {
+    background-color:aqua
+}
+
+p {
+    border : 5px dashed blue;
+    background-color : antiquewhite
+}

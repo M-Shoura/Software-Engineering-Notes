@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="My/My.csproj" />
+  <Project Path="Regions/Regions.csproj" />
+</Solution>

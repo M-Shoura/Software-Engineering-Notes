@@ -1,0 +1,53 @@
+﻿@model My.ViewModels.StdDeptCrsLst_ViewModel
+
+@{
+    ViewData["Title"] = "ShowStdCrsDetails";
+}
+
+<h1>ShowStdCrsDetails</h1>
+
+<div>
+    <h4>StdDeptCrsLst_ViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StdName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StdName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dept.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dept.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dept.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dept.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseHrs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseHrs)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseList)
+        </dt>
+        <dd class="col-sm-10">
+            <ol>
+                @foreach(var x in Model.CourseList)
+                {
+                    <li>@x</li>
+                }
+            </ol>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StdID">Edit</a> |
+    <a asp-action="Index" asp-controller="Student">Back to List</a>
+</div>

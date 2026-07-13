@@ -1,0 +1,77 @@
+﻿@model List<Car>
+
+<h1>GetAllCars</h1>
+
+
+@functions{
+    private void myTh(string s)
+    {
+        <th style="color:red"> @s </th>
+    }
+}
+
+@* <a href="/car/CreateNewCar" class="btn btn-primary">Create New Car</a> *@
+@Html.ActionLink("Create New Car", "CreateNewCar", "car", null, new { @class = "btn btn-primary" })
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+
+            @*
+
+            <th> Num </th> 
+            <th> Manfacture </th> 
+            <th> Model </th> 
+            <th> Color </th> 
+
+            *@
+
+            @{
+                myTh(@Html.DisplayNameFor(x => Model[0].Num));
+                myTh(@Html.DisplayNameFor(x => Model[0].Manfacture));
+                myTh(@Html.DisplayNameFor(x => Model[0].Model));
+                myTh(@Html.DisplayNameFor(x => Model[0].Color));
+            }
+
+            <th> &nbsp; </th>
+            <th> &nbsp; </th>
+            <th> &nbsp; </th>
+
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(x => Model[i].Num)</td>
+                    <td> @Html.DisplayFor(x => Model[i].Manfacture)</td>
+                    <td> @Html.DisplayFor(x => Model[i].Model)</td>
+                    <td> @Html.DisplayFor(x => Model[i].Color)</td>
+
+                    <td> @Html.ActionLink("Select", "SelectCarById", "car", new { Id = Model[i].Num }, new { @class = "btn btn-primary" }) </td>
+                    <td> @Html.ActionLink("Edit", "UpdateCar", "car", new { Id = Model[i].Num }, new { @class = "btn btn-info" }) </td>
+                    <td> @Html.ActionLink("Delete", "DeleteCar", "car", new { Id = Model[i].Num }, new { @class = "btn btn-danger" }) </td>
+                    
+                    @*       
+                    
+                    td>@Model[i].Num</td>
+                    <td>@Model[i].Model</td>
+                    <td>@Model[i].Manfacture</td>
+                    <td>@Model[i].Color</td>
+
+                    <td> <a href="/Car/SelectCarById/@Model[i].Num" class="btn btn-primary"> Select </a></td>
+                    <td> <a href="/Car/UpdateCar/@Model[i].Num" class="btn btn-info"> Edit </a></td>
+                    <td> <a href="/Car/DeleteCar/@Model[i].Num" class="btn btn-danger"> Delete </a></td> 
+
+                    *@
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}
+else
+{
+    <h1 style="display:flex; justify-content:center"> No Cars to Show !</h1>
+}

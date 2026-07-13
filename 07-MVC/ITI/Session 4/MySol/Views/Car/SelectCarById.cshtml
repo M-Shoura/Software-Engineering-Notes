@@ -1,0 +1,32 @@
+﻿@model Car
+
+<h1>Selected Car Data</h1>
+
+@* <div>
+    Num: @Model.Num <br />
+    Manfacture: @Model.Manfacture <br />
+    Model: @Model.Model <br />
+    Color: @Model.Color <br />
+</div>
+
+<a href="/Car/GetAllCars" class=" btn btn-primary "> Return Back To List</a>
+
+ *@
+
+<div>
+    @Html.DisplayNameFor(x=>x.Num) : 
+    @Html.DisplayFor(x => x.Num) <br />
+
+    @Html.DisplayNameFor(x => x.Manfacture) :
+    @Html.DisplayFor(x => x.Manfacture) <br />
+
+    @Html.DisplayNameFor(x => x.Model) :
+    @Html.DisplayFor(x => x.Model) <br />
+
+    @Html.DisplayNameFor(x => x.Color) :
+    @Html.DisplayFor(x => x.Color) <br />
+
+</div>
+
+@Html.ActionLink("Return Back To List", "GetAllCars", "car", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Edit", "UpdateCar", "car", new{Id = Model.Num} , new{@class="btn btn-info"})

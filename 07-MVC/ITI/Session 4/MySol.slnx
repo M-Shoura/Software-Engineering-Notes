@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MySol/MySol.csproj" />
+  <Project Path="Notes/Notes.csproj" />
+</Solution>

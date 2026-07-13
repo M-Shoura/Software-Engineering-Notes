@@ -1,0 +1,65 @@
+﻿@model My.Models.Student
+@{
+    var allDeptsList = new SelectList(ViewBag.DeptList, "ID", "Name");
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="StdName" class="control-label"></label>
+    <input asp-for="StdName" class="form-control" />
+    <span asp-validation-for="StdName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Password" class="control-label"></label>
+    <input asp-for="Password" class="form-control" />
+    <span asp-validation-for="Password" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="BirthDate" class="control-label"></label>
+    <input asp-for="BirthDate" class="form-control" />
+    <span asp-validation-for="BirthDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Mark" class="control-label"></label>
+    <input asp-for="Mark" class="form-control" />
+    <span asp-validation-for="Mark" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Email" class="control-label"></label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="ConfirmEmail" class="control-label"></label>
+    <input asp-for="ConfirmEmail" class="form-control" />
+    <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="gender" class="control-label"></label>
+    <select asp-for="gender" asp-items="@Html.GetEnumSelectList<Gender>()" class="form-control"></select>
+    <span asp-validation-for="gender" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Age" class="control-label"></label>
+    <input asp-for="Age" class="form-control" />
+    <span asp-validation-for="Age" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Mobile" class="control-label"></label>
+    <input asp-for="Mobile" class="form-control" />
+    <span asp-validation-for="Mobile" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Address" class="control-label"></label>
+    <input asp-for="Address" class="form-control" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+</div>
+<div class="form-group form-check">
+    <label class="form-check-label">
+        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+    </label>
+</div>
+<div class="form-group">
+    <label asp-for="DeptID" class="control-label"></label>
+    <select asp-for="DeptID" class="form-control" asp-items="@allDeptsList"></select>
+</div>

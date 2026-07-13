@@ -1,0 +1,51 @@
+﻿@model IEnumerable<My.Models.City>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<br />
+
+@using(Html.BeginForm("Index","city",FormMethod.Post))
+{
+    @Html.DropDownList("countryID", (SelectList)ViewBag.cntrs)
+    <input type="submit" value="search" class="btn btn-primary" />
+}
+
+<br />
+
+<p>
+    @Html.ActionLink("Create New ", "Create", "City", null , new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cntry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cntry.CountryName)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details","City" , new{CityID = item.CityID}, new{@class="btn btn-primary"})
+                @Html.ActionLink("Edit", "Edit", "City", new { CityID = item.CityID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", "City" , new{CityID = item.CityID}, new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
